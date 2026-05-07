@@ -1,0 +1,13 @@
+docs/
+
+# Besu network runtime files
+permissioned_network/logs/
+permissioned_network/.quorumDevQuickstart.lock
+
+# Node private keys (sensitive)
+permissioned_network/config/nodes/*/nodekey
+permissioned_network/config/nodes/*/accountPrivateKey
+permissioned_network/config/nodes/*/accountKeystore
+permissioned_network/config/nodes/*/accountPassword
+permissioned_network/config/ethsigner/key
+permissioned_network/config/ethsigner/password

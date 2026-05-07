@@ -25,7 +25,6 @@ permissioned_network/metricbeat/
 permissioned_network/promtail/
 permissioned_network/quorum-explorer/
 permissioned_network/splunk/
-permissioned_network/ 
 permissioned_network/.common.sh
 permissioned_network/README.md
 permissioned_network/chainlens/

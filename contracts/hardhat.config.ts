@@ -36,7 +36,7 @@ export default defineConfig({
       type: "http",
       chainType: "generic",
       url: "http://localhost:8545",
-      accounts: [configVariable("BESU_DEPLOYER_KEY")],
+      accounts: [configVariable("BESU_DEPLOYER_KEY"), configVariable("REGISTRAR_KEY")],
     },
   },
 });

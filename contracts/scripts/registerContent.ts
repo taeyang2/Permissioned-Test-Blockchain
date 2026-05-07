@@ -7,7 +7,7 @@ const CONTENT_REGISTRY_ADDR = "0x9B8397f1B0FEcD3a1a40CdD5E8221Fa461898517" as co
 
 async function main() {
 
-  const { viem } = await network.connect("besu_local");
+  const { viem } = await network.create("besu_local");
 
   const publicClient = await viem.getPublicClient();
   const [walletClient] = await viem.getWalletClients();

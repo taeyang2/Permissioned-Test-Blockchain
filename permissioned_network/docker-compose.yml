@@ -442,9 +442,23 @@ services:
         ipv4_address: 172.16.239.35
 
 
-
-
-
+  ipfs:
+    image: ipfs/kubo:v0.27.0
+    container_name: ipfs
+    entrypoint: >
+      /bin/sh -c "
+        (ipfs init --profile=server 2>/dev/null || true) &&
+        ipfs config Addresses.API /ip4/0.0.0.0/tcp/5001 &&
+        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '[\"*\"]' &&
+        ipfs daemon --migrate=true
+      "
+    ports:
+      - "5001:5001"
+    volumes:
+      - ipfs_data:/data/ipfs
+    networks:
+      quorum-dev-quickstart:
+        ipv4_address: 172.16.239.40
 
 volumes:
   public-keys:
@@ -453,6 +467,7 @@ volumes:
   splunk:
   ethlogger:
   blockscoutpostgres:
+  ipfs_data:
 
 networks:
   quorum-dev-quickstart:

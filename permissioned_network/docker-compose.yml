@@ -251,33 +251,33 @@ services:
   #     quorum-dev-quickstart:
   #       ipv4_address: 172.16.239.26
 
-  member1besu:
-    << : *besu-def
-    environment:
-      - OTEL_RESOURCE_ATTRIBUTES=service.name=member1besu,service.version=${BESU_VERSION:-latest}
-      - NODE_ID=6
-    entrypoint:
-      - /bin/bash
-      - -c
-      - |
-        /opt/besu/bin/besu \
-        --config-file=/config/config.toml \
-        --p2p-host=$$(hostname -i) \
-        --rpc-http-api=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,${BESU_CONS_ALGO:-QBFT} \
-        --rpc-ws-api=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,${BESU_CONS_ALGO:-QBFT} ;
-    volumes:
-      - ./config/besu/:/config
-      - ./config/nodes/member1:/opt/besu/keys
-      - ./logs/besu:/tmp/besu
-    depends_on:
-      - validator1
-      # - member1tessera
-    # ports:
-      # - 20000:8545/tcp
-      # - 20001:8546/tcp
-    networks:
-      quorum-dev-quickstart:
-        ipv4_address: 172.16.239.16
+  # member1besu:
+  #   << : *besu-def
+  #   environment:
+  #     - OTEL_RESOURCE_ATTRIBUTES=service.name=member1besu,service.version=${BESU_VERSION:-latest}
+  #     - NODE_ID=6
+  #   entrypoint:
+  #     - /bin/bash
+  #     - -c
+  #     - |
+  #       /opt/besu/bin/besu \
+  #       --config-file=/config/config.toml \
+  #       --p2p-host=$$(hostname -i) \
+  #       --rpc-http-api=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,${BESU_CONS_ALGO:-QBFT} \
+  #       --rpc-ws-api=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,${BESU_CONS_ALGO:-QBFT} ;
+  #   volumes:
+  #     - ./config/besu/:/config
+  #     - ./config/nodes/member1:/opt/besu/keys
+  #     - ./logs/besu:/tmp/besu
+  #   depends_on:
+  #     - validator1
+  #     # - member1tessera
+  #   # ports:
+  #     # - 20000:8545/tcp
+  #     # - 20001:8546/tcp
+  #   networks:
+  #     quorum-dev-quickstart:
+  #       ipv4_address: 172.16.239.16
 
   # member2tessera:
   #   << : *tessera-def
@@ -290,33 +290,33 @@ services:
   #     quorum-dev-quickstart:
   #       ipv4_address: 172.16.239.27
 
-  member2besu:
-    << : *besu-def
-    environment:
-      - OTEL_RESOURCE_ATTRIBUTES=service.name=member2besu,service.version=${BESU_VERSION:-latest}
-      - NODE_ID=7
-    entrypoint:
-      - /bin/bash
-      - -c
-      - |
-        /opt/besu/bin/besu \
-        --config-file=/config/config.toml \
-        --p2p-host=$$(hostname -i) \
-        --rpc-http-api=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,${BESU_CONS_ALGO:-QBFT} \
-        --rpc-ws-api=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,${BESU_CONS_ALGO:-QBFT} ;
-    volumes:
-      - ./config/besu/:/config
-      - ./config/nodes/member2:/opt/besu/keys
-      - ./logs/besu:/tmp/besu
-    depends_on:
-      - validator1
-      # - member2tessera
-    # ports:
-      # - 20002:8545/tcp
-      # - 20003:8546/tcp
-    networks:
-      quorum-dev-quickstart:
-        ipv4_address: 172.16.239.17
+  # member2besu:
+  #   << : *besu-def
+  #   environment:
+  #     - OTEL_RESOURCE_ATTRIBUTES=service.name=member2besu,service.version=${BESU_VERSION:-latest}
+  #     - NODE_ID=7
+  #   entrypoint:
+  #     - /bin/bash
+  #     - -c
+  #     - |
+  #       /opt/besu/bin/besu \
+  #       --config-file=/config/config.toml \
+  #       --p2p-host=$$(hostname -i) \
+  #       --rpc-http-api=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,${BESU_CONS_ALGO:-QBFT} \
+  #       --rpc-ws-api=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,${BESU_CONS_ALGO:-QBFT} ;
+  #   volumes:
+  #     - ./config/besu/:/config
+  #     - ./config/nodes/member2:/opt/besu/keys
+  #     - ./logs/besu:/tmp/besu
+  #   depends_on:
+  #     - validator1
+  #     # - member2tessera
+  #   # ports:
+  #     # - 20002:8545/tcp
+  #     # - 20003:8546/tcp
+  #   networks:
+  #     quorum-dev-quickstart:
+  #       ipv4_address: 172.16.239.17
 
   # member3tessera:
   #   << : *tessera-def
@@ -329,33 +329,33 @@ services:
   #     quorum-dev-quickstart:
   #       ipv4_address: 172.16.239.28
 
-  member3besu:
-    << : *besu-def
-    environment:
-      - OTEL_RESOURCE_ATTRIBUTES=service.name=member3besu,service.version=${BESU_VERSION:-latest}
-      - NODE_ID=8
-    entrypoint:
-      - /bin/bash
-      - -c
-      - |
-        /opt/besu/bin/besu \
-        --config-file=/config/config.toml \
-        --p2p-host=$$(hostname -i) \
-        --rpc-http-api=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,${BESU_CONS_ALGO:-QBFT} \
-        --rpc-ws-api=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,${BESU_CONS_ALGO:-QBFT} ;
-    volumes:
-      - ./config/besu/:/config
-      - ./config/nodes/member3:/opt/besu/keys
-      - ./logs/besu:/tmp/besu
-    depends_on:
-      - validator1
-      # - member3tessera
-    # ports:
-      # - 20004:8545/tcp
-      # - 20005:8546/tcp
-    networks:
-      quorum-dev-quickstart:
-        ipv4_address: 172.16.239.18
+  # member3besu:
+  #   << : *besu-def
+  #   environment:
+  #     - OTEL_RESOURCE_ATTRIBUTES=service.name=member3besu,service.version=${BESU_VERSION:-latest}
+  #     - NODE_ID=8
+  #   entrypoint:
+  #     - /bin/bash
+  #     - -c
+  #     - |
+  #       /opt/besu/bin/besu \
+  #       --config-file=/config/config.toml \
+  #       --p2p-host=$$(hostname -i) \
+  #       --rpc-http-api=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,${BESU_CONS_ALGO:-QBFT} \
+  #       --rpc-ws-api=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,${BESU_CONS_ALGO:-QBFT} ;
+  #   volumes:
+  #     - ./config/besu/:/config
+  #     - ./config/nodes/member3:/opt/besu/keys
+  #     - ./logs/besu:/tmp/besu
+  #   depends_on:
+  #     - validator1
+  #     # - member3tessera
+  #   # ports:
+  #     # - 20004:8545/tcp
+  #     # - 20005:8546/tcp
+  #   networks:
+  #     quorum-dev-quickstart:
+  #       ipv4_address: 172.16.239.18
 
 
 
